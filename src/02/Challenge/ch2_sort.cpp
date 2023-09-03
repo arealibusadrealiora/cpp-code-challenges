@@ -17,8 +17,22 @@
 bool sort_array(int *arr, int n){
 
     // Write your code here
+    if (arr == nullptr) 
+        return false;
+    if (n < 2)
+        return true;
 
-    return false;
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        std::swap(arr[i], arr[minIndex]);
+    }
+
+    return true;
 }
 
 // Main function
@@ -40,6 +54,7 @@ int main(){
     for (int i = 0; i < len; i++)
         std::cout << array[i] << " ";
     std::cout << "]" << std::endl << std::endl << std::flush;
-
+    std::cin.get();
+    
     return 0;
 }
