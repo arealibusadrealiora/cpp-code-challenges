@@ -11,12 +11,23 @@
 // Summary: This application runs on the main function.
 int main(){
     int n; // How many numbers to include in the sequence.
-    
     std::cout << "Enter a positive integer: " << std::flush;
     std::cin >> n;
 
     // Write your code here
-    
+    for (int i = 1; i <= n; i++) {
+        bool fizz = (i % 3) == 0;
+        bool buzz = (i % 5) == 0;
+        if (!fizz && !buzz)
+            std::cout << i;
+        else {
+            if (fizz)
+                std::cout << "Fizz";
+            if (buzz)
+                std::cout << "Buzz";
+        }
+    }
     std::cout << std::endl << std::flush;
+    std::cin.get();
     return 0;
 }
